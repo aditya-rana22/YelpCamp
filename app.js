@@ -27,6 +27,7 @@ const dbUrl = process.env.DB_URL;
 
 // db env variable for proper hosting
 // process.env.DB_URL
+
 mongoose
   .connect(dbUrl)
   .then((res) => {
