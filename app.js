@@ -21,7 +21,11 @@ const mongoSanitize = require("express-mongo-sanitize");
 const MongoDBStore = require("connect-mongo")(session);
 
 const dbUrl = process.env.DB_URL;
+
+// Dburl for localhostingg
 // "mongodb://127.0.0.1:27017/yelp-camp"
+
+// db env variable for proper hosting
 // process.env.DB_URL
 mongoose
   .connect(dbUrl)
