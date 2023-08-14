@@ -1,3 +1,5 @@
 img {
-  aspect-ratio: 5/3;
+  height: 263px;
+  width: 420px;
+  object-fit: cover;
 }
