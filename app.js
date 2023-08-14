@@ -69,8 +69,10 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.listen(400, () => {
-  console.log("Listening on Server 400");
+const port = process.env.PORT || 400;
+
+app.listen(port, () => {
+  console.log(`Listening on Server ${port}`);
 });
 
 app.use(
