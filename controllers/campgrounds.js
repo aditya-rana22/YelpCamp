@@ -24,6 +24,11 @@ module.exports.createCampground = async (req, res, next) => {
     })
     .send();
   // res.send(geoData.body.features[0].geometry);
+  if (!geoData.body.features.length) {
+  req.flash('error', 'Invalid location. Please enter a valid place.');
+  return res.redirect('/campgrounds/new');
+  }
+  
   const camp = new Campground(req.body.campground);
   camp.geometry = geoData.body.features[0].geometry;
   camp.author = req.user._id;
