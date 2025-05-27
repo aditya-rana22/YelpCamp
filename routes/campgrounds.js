@@ -12,16 +12,15 @@ const catchAsync = require("../utils/catchAsync");
 const { storage } = require("../cloudinary");
 const multer = require("multer");
 const upload = multer({ storage });
+const { upload } = require("../cloudinary");
 
-router
-  .route("/")
-  .get(catchAsync(campgrounds.index))
-  .post(
-    isLoggedIn,
-    upload.array("image"),
-    validateCampground,
-    catchAsync(campgrounds.createCampground)
-  );
+router.post(
+  "/",
+  isLoggedIn,
+  upload.array("image"),
+  validateCampground,
+  catchAsync(campgrounds.createCampground)
+);
 
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
 
