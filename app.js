@@ -97,15 +97,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 app.use("/", userRoutes);
 
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({
-    email: "aditya22@gmail.com",
-    username: "aditya",
-  });
-  const newUser = await User.register(user, "chicken");
-  res.send(newUser);
-});
-
 app.get("/", (req, res) => {
   res.render("home");
 });
