@@ -14,13 +14,16 @@ const multer = require("multer");
 // const upload = multer({ storage });
 const { upload } = require("../cloudinary");
 
-router.post(
-  "/",
-  isLoggedIn,
-  upload.array("image"),
-  validateCampground,
-  catchAsync(campgrounds.createCampground)
-);
+router
+  .route("/")
+  .get(catchAsync(campgrounds.index))   // GET all campgrounds
+  .post(
+    isLoggedIn,
+    upload.array("image"),
+    validateCampground,
+    catchAsync(campgrounds.createCampground)
+  );                                    // POST create campground
+
 
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
 
