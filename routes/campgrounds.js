@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-console.log(process.env.secret);
+// console.log(process.env.secret);
 
 const express = require("express");
 const router = express.Router();
