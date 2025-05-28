@@ -1,8 +1,15 @@
 function previewMultiple(event) {
-  var images = document.getElementById("image");
+  const files = event.target.files;
+  const previewContainer = document.getElementById("formFile");
+  previewContainer.innerHTML = "";
   var number = images.files.length;
-  for (i = 0; i < number; i++) {
-    var urls = URL.createObjectURL(event.target.files[i]);
-    document.getElementById("formFile").innerHTML += '<img src="' + urls + '">';
+  for (let i = 0; i < files.length; i++) {
+    const url = URL.createObjectURL(files[i]);
+    const img = document.createElement("img");
+    img.src = url;
+    img.style.maxWidth = "150px";
+    img.style.margin = "5px";
+    img.classList.add("img-thumbnail");
+    previewContainer.appendChild(img);
   }
 }
